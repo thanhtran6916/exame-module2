@@ -1,7 +1,10 @@
 package view;
 
+import model.PhoneBook;
+
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 
@@ -38,6 +41,16 @@ public class AppException {
         } finally {
             return localDate;
         }
+    }
+
+    public static boolean checkPhoneNumber(String phoneNumberCheck, ArrayList<PhoneBook> bookArrayList) {
+        for (PhoneBook phoneBook : bookArrayList) {
+            if (phoneBook.getPhoneNumber().equals(phoneNumberCheck)) {
+                System.err.println("Số điện thoại đã tồn tại");
+                return true;
+            }
+        }
+        return false;
     }
 
 

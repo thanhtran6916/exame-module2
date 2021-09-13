@@ -94,6 +94,7 @@ public class PhoneBookRun {
                 String check = SCANNER.nextLine();
                 if (check.equals("y")) {
                     phoneBooks.remove(index);
+                    break;
                 } else {
                     break;
                 }
@@ -146,25 +147,16 @@ public class PhoneBookRun {
 
 
     public static PhoneBook inputPhoneBook() {
-        System.out.println("Số điện thoại.");
-        String numberPhone = SCANNER.nextLine();
-        System.out.println("Nhóm của danh bạ.");
-        String group = SCANNER.nextLine();
-        System.out.println("Họ tên.");
-        String fullName = SCANNER.nextLine();
-        System.out.println("Giới tính");
-        String gender = SCANNER.nextLine();
-        System.out.println("Địa chỉ.");
-        String address = SCANNER.nextLine();
-        LocalDate dateOfBirth;
+        String phoneNumber;
+        boolean checkPhoneNumber;
         do {
-            System.out.println("Ngày sinh.");
-            String dateString = SCANNER.nextLine();
-            dateOfBirth = AppException.inputDate(dateString);
-        } while (dateOfBirth == null);
-        System.out.println("Email.");
-        String email = SCANNER.nextLine();
-        return new PhoneBook(numberPhone, group, fullName, gender, address, dateOfBirth, email);
+            System.out.println("Số điện thoại.");
+            phoneNumber = SCANNER.nextLine();
+            checkPhoneNumber = AppException.checkPhoneNumber(phoneNumber, phoneBooks.getPhoneBooks());
+        } while (checkPhoneNumber);
+        PhoneBook phoneBook = inputPhoneBookEdit();
+        phoneBook.setPhoneNumber(phoneNumber);
+        return phoneBook;
     }
 
     public static void menu() {

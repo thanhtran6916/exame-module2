@@ -5,15 +5,13 @@ import model.PhoneBook;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class PhoneBookManagement {
 
     public static final String FILE_PATCH = "E:\\CodeGym\\bai_thi_thuc_hanh_module_2\\filedata.txt";
-    private List<PhoneBook> phoneBooks = new ArrayList<>();
+    private ArrayList<PhoneBook> phoneBooks = new ArrayList<>();
 
-    public List<PhoneBook> getPhoneBooks() {
+    public ArrayList<PhoneBook> getPhoneBooks() {
         return phoneBooks;
     }
 
@@ -23,12 +21,13 @@ public class PhoneBookManagement {
             PhoneBook phoneBook = phoneBooks.get(i);
             if (phoneBook.getPhoneNumber().equals(phoneNumber)) {
                 index = i;
+                break;
             }
         }
         return index;
     }
 
-    public void setPhoneBooks(List<PhoneBook> phoneBooks) {
+    public void setPhoneBooks(ArrayList<PhoneBook> phoneBooks) {
         this.phoneBooks = phoneBooks;
     }
 
