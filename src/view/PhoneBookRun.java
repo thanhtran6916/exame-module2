@@ -18,7 +18,7 @@ public class PhoneBookRun {
             AppException.inputNumber(choose, 1, 8);
             switch (choose) {
                 case 1:
-                    showPhoneBook();
+                    showPhoneBook(5);
                     break;
                 case 2:
                     addPhoneBook();
@@ -60,9 +60,9 @@ public class PhoneBookRun {
         }
     }
 
-    private static void showPhoneBook() {
+    private static void showPhoneBook(int number) {
         String choose;
-        int count = 2;
+        int count = number;
         int index = 0;
         do {
             if (phoneBooks.getPhoneBooks().size() == index) {
@@ -77,7 +77,7 @@ public class PhoneBookRun {
             }
             System.out.println("Nhấn enter đế tiếp tục");
             choose = SCANNER.nextLine();
-            count = 2;
+            count = number;
         } while (choose.equals(""));
     }
 
@@ -137,7 +137,7 @@ public class PhoneBookRun {
         do {
             System.out.println("Ngày sinh.");
             String dateString = SCANNER.nextLine();
-            dateOfBirth = AppException.inputDate("2012-11-22");
+            dateOfBirth = AppException.inputDate(dateString);
         } while (dateOfBirth == null);
         System.out.println("Email.");
         String email = SCANNER.nextLine();
@@ -160,7 +160,7 @@ public class PhoneBookRun {
         do {
             System.out.println("Ngày sinh.");
             String dateString = SCANNER.nextLine();
-            dateOfBirth = AppException.inputDate("2012-11-22");
+            dateOfBirth = AppException.inputDate(dateString);
         } while (dateOfBirth == null);
         System.out.println("Email.");
         String email = SCANNER.nextLine();
